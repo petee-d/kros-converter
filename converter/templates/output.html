@@ -1,0 +1,18 @@
+<table>
+  <thead>
+  <tr>
+    <th>A</th>
+    <th>B</th>
+    <th>C</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for row in converted.rows %}
+  <tr>
+    <th>{{ row.a }}</th>
+    <th>{{ row.b }}</th>
+    <th>{{ row.c }}</th>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
