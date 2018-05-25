@@ -8,10 +8,6 @@
       "description": "Web application for converting Kros CSV invoice exports to summarized tables.",
       "tags": "kros,accounting,python,django",
       "iconClass": "icon-python",
-      "openshift.io/long-description": "This template defines resources needed to develop a Django based application, including a build configuration and application deployment configuration.  It does not include a database.",
-      "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "openshift.io/documentation-url": "https://github.com/openshift/django-ex",
-      "openshift.io/support-url": "https://access.redhat.com",
       "template.openshift.io/bindable": "false"
     }
   },
