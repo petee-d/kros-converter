@@ -1,13 +1,23 @@
-/*
- * The MIT License
- * Copyright (c) 2012 Matias Meno <m@tias.me>
- */
+/* GUI */
+
+body {
+  background: rgb(235, 247, 255);
+}
+
 .dropzone, .dropzone * {
   box-sizing: border-box; }
 
 .dropzone#upload {
   position: relative;
   padding: 5px;
+  font-weight: bold;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b6dffd+0,b8e2f6+37,d8f0fc+57,e0f3fa+100 */
+  background: rgb(182,223,253); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(182,223,253,1) 0%, rgba(184,226,246,1) 37%, rgba(216,240,252,1) 57%, rgba(224,243,250,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(182,223,253,1) 0%,rgba(184,226,246,1) 37%,rgba(216,240,252,1) 57%,rgba(224,243,250,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(182,223,253,1) 0%,rgba(184,226,246,1) 37%,rgba(216,240,252,1) 57%,rgba(224,243,250,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b6dffd', endColorstr='#e0f3fa',GradientType=0 ); /* IE6-9 */
   }
   .dropzone#upload .dz-message {
     height: 20px;
@@ -43,3 +53,80 @@
       height: 58px;
       left: 50%;
       margin-left: -27px; }
+
+#print {
+  display: none;
+  width: 100%;
+  height: 30px;
+  margin-top: 10px; }
+  #print.print-show {
+    display: block; }
+
+footer {
+  text-align: center;
+}
+
+/* result */
+
+#result h3 {
+  font-size: 18px;
+}
+
+#result {
+  margin: 25px 5%;
+}
+#result table, #result table tbody {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+#result table th, #result table td {
+  padding: 5px;
+  border: 1px solid darkgrey;
+}
+#result .header-code, #result .data-code {
+  text-align: left;
+}
+#result .header-quantity, #result .data-quantity {
+  text-align: right;
+}
+#result .header-type, #result .data-type {
+  text-align: left;
+}
+#result .header-total, #result .data-total {
+  text-align: right;
+}
+#result tfoot th {
+  text-align: left;
+}
+#result .data-grand-total {
+  text-align: right;
+}
+#result .data-total:after, #result .data-grand-total:after {
+  content: ' €';
+}
+
+/* print */
+
+@media print {
+
+  body {
+    background: none;
+  }
+  header {
+    display: none;
+  }
+  section.uploader {
+    display: none;
+  }
+  #result {
+    position: fixed;
+    width: 90%;
+    bottom: 0;
+    left: 0;
+  }
+  footer {
+    display: none;
+  }
+
+}

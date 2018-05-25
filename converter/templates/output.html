@@ -1,18 +1,28 @@
+<h3>Pomocná tabuľka výpočtov pre kontrolný výkaz za faktúru {{ invoice }}:</h3>
+
 <table>
   <thead>
   <tr>
-    <th>A</th>
-    <th>B</th>
-    <th>C</th>
+    <th class="header-code">Kód KN</th>
+    <th class="header-quantity">Množstvo</th>
+    <th class="header-type">Merná jednotka</th>
+    <th class="header-total">Suma</th>
   </tr>
   </thead>
   <tbody>
-  {% for row in converted.rows %}
+  {% for item in items %}
   <tr>
-    <th>{{ row.a }}</th>
-    <th>{{ row.b }}</th>
-    <th>{{ row.c }}</th>
+    <td class="data-code">{{ item.code }}</td>
+    <td class="data-quantity">{{ item.quantity }}</td>
+    <td class="data-type">{{ item.type }}</td>
+    <td class="data-total">{{ item.total }}</td>
   </tr>
   {% endfor %}
   </tbody>
+  <tfoot>
+  <tr>
+    <th colspan="3">Celková suma tovarov s prenesenou DP:</th>
+    <td class="data-grand-total">{{ total }}</td>
+  </tr>
+  </tfoot>
 </table>

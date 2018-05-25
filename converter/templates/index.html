@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Welcome to OpenShift</title>
+  <title>Alfa plus KROS - výkaz z CSV faktúry</title>
 
   <link rel="stylesheet" href="static/basic.css">
   <script src="static/dropzone.js"></script>
@@ -16,34 +16,39 @@
 <body>
 
 <section class="container">
-  <hgroup>
-    <h1>Kros invoice converter</h1>
-  </hgroup>
+  <header>
+    <h1>Alfa plus KROS - výkaz z CSV faktúry</h1>
+  </header>
 
-  <section class="col-xs-12 col-sm-6 col-md-6">
+  <section class="uploader">
     <form action="/convert" class="dropzone" id="upload"></form>
+
+    <button onclick="javascript:window.print(); return false" id="print">Vytlačiť</button>
   </section>
 
-  <section id="result-section" class="col-xs-12 col-sm-6 col-md-6">
-    <h4>Result - TODO</h4>
-    <div id="result"></div>
+  <section id="result">
   </section>
 
-  <hr />
   <footer>
-    <div>Created by Petee, using OpenShift and Django</div>
+    <hr />
+    <div>Created by <a href="https://github.com/petee-d/kros-converter">Petee</a>, using
+      <a href="https://www.openshift.com/">OpenShift</a>,
+      <a href="https://www.djangoproject.com/">Django</a> and
+      <a href="http://www.dropzonejs.com/">DropZone</a></div>
   </footer>
 </section>
 
 <script>
   Dropzone.options.upload = {
     maxFilesize: 1, // MB
+    dictDefaultMessage: 'Nahrajte CSV export pretiahnutím sem alebo kliknutím',
 
     init: function() {
       var uploader = this;
       uploader.on('success', function(file, response) {
         console.log(response);
         document.getElementById('result').innerHTML = file.xhr.response;
+        document.getElementById('print').className = 'print-show';
         setTimeout(function() {
           uploader.removeAllFiles();
         }, 1000)

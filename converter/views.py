@@ -18,10 +18,8 @@ def convert(request: HttpRequest):
         return HttpResponseBadRequest('No file was uploaded!')
 
     file: InMemoryUploadedFile = request.FILES['file']
-    converted = KrosConverter(file).convert()
-    return render(request, 'output.html', {
-        'converted': converted,
-    })
+    data = KrosConverter(file).convert()
+    return render(request, 'output.html', data)
 
 
 def health(request: HttpRequest):
