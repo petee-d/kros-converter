@@ -28,28 +28,29 @@ class KrosConverter:
         dialect = csv.Sniffer().sniff(data[:1024])
         self.reader = csv.reader(io.StringIO(data), delimiter=self.csv_separator, dialect=dialect)
 
+    def _expect_row_count(self, row):
+        if len(row) != 34:
+            raise FormatError('Nesprávny počet stĺpcov, očakáva sa 34')
+
     def get_invoice_no(self):
         try:
             row = next(self.reader)
         except StopIteration:
-            raise FormatError('CSV je prazdne')
+            raise FormatError('CSV súbor je prázdny')
 
-        if len(row) != 34:
-            raise FormatError('Nespravny pocet stlpcov')
+        self._expect_row_count(row)
         return row[self.row_invoice]
 
     def to_data(self):
         for row in self.reader:
-            if len(row) != 34:
-                raise FormatError('Nespravny pocet stlpcov')
+            self._expect_row_count(row)
             if self.table_start in row[self.row_code]:
                 break
         else:
-            raise FormatError('Nebol najdeny zaciatok tabulky poloziek')
+            raise FormatError('Nebol nájdený začiatok tabuľky položiek faktúry')
 
         for row in self.reader:
-            if len(row) != 34:
-                raise FormatError('Nespravny pocet stlpcov')
+            self._expect_row_count(row)
             if not row[self.row_type]:
                 break
             yield {

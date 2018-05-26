@@ -1,10 +1,8 @@
-import os
-
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpResponse, HttpRequest, HttpResponseNotAllowed, HttpResponseBadRequest
 from django.shortcuts import render
 
-from converter.convert import KrosConverter
+from converter.convert import KrosConverter, FormatError
 
 
 def index(request: HttpRequest):
@@ -18,7 +16,10 @@ def convert(request: HttpRequest):
         return HttpResponseBadRequest('No file was uploaded!')
 
     file: InMemoryUploadedFile = request.FILES['file']
-    data = KrosConverter(file).convert()
+    try:
+        data = KrosConverter(file).convert()
+    except FormatError as e:
+        return HttpResponseBadRequest(str(e))
     return render(request, 'output.html', data)
 
 
