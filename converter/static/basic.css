@@ -86,15 +86,19 @@ footer {
 }
 #result .header-code, #result .data-code {
   text-align: left;
+  width: 25%;
 }
 #result .header-quantity, #result .data-quantity {
   text-align: right;
+  width: 25%;
 }
 #result .header-type, #result .data-type {
   text-align: left;
+  width: 25%;
 }
 #result .header-total, #result .data-total {
   text-align: right;
+  width: 25%;
 }
 #result tfoot th {
   text-align: left;
