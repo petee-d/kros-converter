@@ -15,22 +15,23 @@ def convert_decimal(value):
 
 class KrosConverter:
     csv_separator = ';'
-    row_invoice = 24
+    col_invoice = 24
     table_start = 'kombinovanej'
-    row_code = 3
-    row_quantity = 17
-    row_type = 20
-    row_vat = 24
-    row_total = 31
+    col_code = 3
+    col_quantity = 17
+    col_type = 20
+    col_vat = 24
+    col_total = 31
+    min_columns = 32
 
     def __init__(self, file):
         data = codecs.EncodedFile(file, 'utf-8').read().decode('utf-8')
         dialect = csv.Sniffer().sniff(data[:1024])
         self.reader = csv.reader(io.StringIO(data), delimiter=self.csv_separator, dialect=dialect)
 
-    def _expect_row_count(self, row):
-        if len(row) != 34:
-            raise FormatError('Nesprávny počet stĺpcov, očakáva sa 34')
+    def _expect_col_count(self, row):
+        if len(row) < self.min_columns:
+            raise FormatError(f'Nesprávny počet stĺpcov, očakáva sa {self.min_columns} alebo viac')
 
     def get_invoice_no(self):
         try:
@@ -38,27 +39,27 @@ class KrosConverter:
         except StopIteration:
             raise FormatError('CSV súbor je prázdny')
 
-        self._expect_row_count(row)
-        return row[self.row_invoice]
+        self._expect_col_count(row)
+        return row[self.col_invoice]
 
     def to_data(self):
         for row in self.reader:
-            self._expect_row_count(row)
-            if self.table_start in row[self.row_code]:
+            self._expect_col_count(row)
+            if self.table_start in row[self.col_code]:
                 break
         else:
             raise FormatError('Nebol nájdený začiatok tabuľky položiek faktúry')
 
         for row in self.reader:
-            self._expect_row_count(row)
-            if not row[self.row_type]:
+            self._expect_col_count(row)
+            if not row[self.col_type]:
                 break
             yield {
-                'code': row[self.row_code],
-                'quantity': convert_decimal(row[self.row_quantity]),
-                'type': row[self.row_type],
-                'vat': convert_decimal(row[self.row_vat]),
-                'total': convert_decimal(row[self.row_total]),
+                'code': row[self.col_code],
+                'quantity': convert_decimal(row[self.col_quantity]),
+                'type': row[self.col_type],
+                'vat': convert_decimal(row[self.col_vat]),
+                'total': convert_decimal(row[self.col_total]),
             }
 
     def filter_irrelevant(self, items):

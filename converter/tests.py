@@ -84,4 +84,4 @@ class ViewTest(SimpleTestCase):
         upload = SimpleUploadedFile('file.csv', b'a,b,c\n1,2,3', content_type='text/csv')
         resp = self.client.post('/convert', {'file': upload})
         self.assertEqual(resp.status_code, 400)
-        self.assertEqual(resp.content.decode('utf-8').strip(), 'Nesprávny počet stĺpcov, očakáva sa 34')
+        self.assertIn('Nesprávny počet stĺpcov', resp.content.decode('utf-8'))
