@@ -303,8 +303,8 @@
     {
       "name": "DJANGO_DEBUG",
       "displayName": "Django Debug switch",
-      "description": "Should be True in production.",
-      "value": "True"
+      "description": "Should be False in production.",
+      "value": "False"
     },
     {
       "name": "PIP_INDEX_URL",
