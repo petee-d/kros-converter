@@ -72,13 +72,19 @@ class ViewTest(SimpleTestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertContains(resp, 'id="upload"')
 
-    def test_convert(self):
-        example_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'examples', 'faktura.csv')
-        with open(example_path, 'r', encoding='utf-8') as f:
-            upload = SimpleUploadedFile('file.csv', f.read().encode('utf-8'), content_type='text/csv')
+    def _test_convert(self, file_name, encoding):
+        example_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'examples', file_name)
+        with open(example_path, 'r', encoding=encoding) as f:
+            upload = SimpleUploadedFile('file.csv', f.read().encode(encoding), content_type='text/csv')
         resp = self.client.post('/convert', {'file': upload})
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.content.decode('utf-8').strip(), EXPECTED_RESPONSE_1)
+
+    def test_convert_utf_8(self):
+        self._test_convert('faktura.csv', 'utf-8')
+
+    def test_convert_windows_1250(self):
+        self._test_convert('faktura-windows-1250.csv', 'windows-1250')
 
     def test_convert_error_columns(self):
         upload = SimpleUploadedFile('file.csv', b'a,b,c\n1,2,3', content_type='text/csv')

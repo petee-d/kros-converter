@@ -25,7 +25,15 @@ class KrosConverter:
     min_columns = 32
 
     def __init__(self, file):
-        data = codecs.EncodedFile(file, 'utf-8').read().decode('utf-8')
+        raw_data = file.read()
+        for encoding in ['utf-8', 'windows-1250']:
+            try:
+                data = raw_data.decode(encoding)
+                break
+            except UnicodeDecodeError:
+                continue
+        else:
+            raise FormatError('Nesprávne kódovanie, musí byť UTF-8 alebo Windows 1250')
         dialect = csv.Sniffer().sniff(data[:1024])
         self.reader = csv.reader(io.StringIO(data), delimiter=self.csv_separator, dialect=dialect)
 
