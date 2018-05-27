@@ -1,8 +1,12 @@
 import codecs
 import csv
 import io
+import re
 from collections import OrderedDict
 from decimal import Decimal
+
+
+WHITESPACE_RE = re.compile(r'\s', re.UNICODE)
 
 
 class FormatError(ValueError):
@@ -10,7 +14,7 @@ class FormatError(ValueError):
 
 
 def convert_decimal(value):
-    return Decimal(value.replace(' ', '').replace(',', '.'))
+    return Decimal(WHITESPACE_RE.sub('', value).replace(',', '.'))
 
 
 class KrosConverter:
