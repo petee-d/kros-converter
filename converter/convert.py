@@ -38,7 +38,10 @@ class KrosConverter:
                 continue
         else:
             raise FormatError('Nesprávne kódovanie, musí byť UTF-8 alebo Windows 1250')
-        dialect = csv.Sniffer().sniff(data[:1024])
+        try:
+            dialect = csv.Sniffer().sniff(data[:1024])
+        except Exception:
+            raise FormatError('Súbor nie je v korektnom formáte CSV')
         self.reader = csv.reader(io.StringIO(data), delimiter=self.csv_separator, dialect=dialect)
 
     def _expect_col_count(self, row):

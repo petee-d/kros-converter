@@ -86,6 +86,12 @@ class ViewTest(SimpleTestCase):
     def test_convert_windows_1250(self):
         self._test_convert('faktura-windows-1250.csv', 'windows-1250')
 
+    def test_convert_error_csv(self):
+        upload = SimpleUploadedFile('file.csv', b'a;b;c\n1;2', content_type='text/csv')
+        resp = self.client.post('/convert', {'file': upload})
+        self.assertEqual(resp.status_code, 400)
+        self.assertIn('Súbor nie je v korektnom formáte CSV', resp.content.decode('utf-8'))
+
     def test_convert_error_columns(self):
         upload = SimpleUploadedFile('file.csv', b'a,b,c\n1,2,3', content_type='text/csv')
         resp = self.client.post('/convert', {'file': upload})
