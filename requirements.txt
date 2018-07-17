@@ -1,4 +1,4 @@
 django>=1.11,<1.12
 django-debug-toolbar==1.8
-gunicorn==19.4.5
+gunicorn==19.9.0
 whitenoise==3.3.1
