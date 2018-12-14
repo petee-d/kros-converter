@@ -21,7 +21,7 @@ class KrosConverter:
     csv_separator = ';'
     col_invoice = 24
     table_start = 'kombinovanej'
-    col_code = 3
+    col_code_candidates = [2, 3]
     col_quantity = 17
     col_type = 20
     col_vat = 24
@@ -57,20 +57,24 @@ class KrosConverter:
         self._expect_col_count(row)
         return row[self.col_invoice]
 
-    def to_data(self):
+    def _locate_code_column(self):
         for row in self.reader:
             self._expect_col_count(row)
-            if self.table_start in row[self.col_code]:
-                break
+            for col in self.col_code_candidates:
+                if self.table_start in row[col]:
+                    return col
         else:
             raise FormatError('Nebol nájdený začiatok tabuľky položiek faktúry')
+
+    def to_data(self):
+        col_code = self._locate_code_column()
 
         for row in self.reader:
             self._expect_col_count(row)
             if not row[self.col_type]:
                 break
             yield {
-                'code': row[self.col_code],
+                'code': row[col_code],
                 'quantity': convert_decimal(row[self.col_quantity]),
                 'type': row[self.col_type],
                 'vat': convert_decimal(row[self.col_vat]),
