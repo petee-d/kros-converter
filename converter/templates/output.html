@@ -1,4 +1,4 @@
-<h3>Pomocná tabuľka výpočtov pre kontrolný výkaz za faktúru {{ invoice }}:</h3>
+<h3>Pomocná tabuľka výpočtov pre kontrolný výkaz za faktúru {{ invoice.number }}:</h3>
 
 <table>
   <thead>
@@ -10,14 +10,14 @@
   </tr>
   </thead>
   <tbody>
-  {% for item in items %}
+{% for item in aggregates %}
   <tr>
     <td class="data-code">{{ item.code }}</td>
     <td class="data-quantity">{{ item.quantity }}</td>
-    <td class="data-type">{{ item.type }}</td>
+    <td class="data-type">{{ item.unit }}</td>
     <td class="data-total">{{ item.total }}</td>
   </tr>
-  {% endfor %}
+{% endfor %}
   </tbody>
   <tfoot>
   <tr>

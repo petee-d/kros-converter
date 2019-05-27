@@ -29,10 +29,13 @@
     <h1>Alfa plus KROS - výkaz z CSV faktúry</h1>
   </header>
 
-  <section class="uploader">
+  <section id="uploader">
     <form action="/convert" class="dropzone" id="upload"></form>
+  </section>
 
-    <button onclick="javascript:window.print(); return false" id="print">Vytlačiť</button>
+  <section id="buttons" class="hide">
+    <a href="javascript:window.print(); false" id="print">Vytlačiť</a>
+    <a href="#" id="to_pohoda_xml">Pohoda XML</a>
   </section>
 
   <section id="result">
@@ -48,6 +51,19 @@
 </section>
 
 <script>
+  function bindXMLDownload(buttonID, filename, xml) {
+    var blob = new Blob([xml], {type: 'application/xml'});
+    if (window.navigator.msSaveOrOpenBlob) {
+      document.getElementById(buttonID).onclick = function () {
+        window.navigator.msSaveBlob(blob, filename);
+      }
+    } else {
+      var elem = document.getElementById(buttonID);
+      elem.href = window.URL.createObjectURL(blob);
+      elem.download = filename + '.xml';
+    }
+  }
+
   Dropzone.options.upload = {
     maxFilesize: 1, // MB
     dictDefaultMessage: 'Nahraj CSV export pretiahnutím sem alebo kliknutím',
@@ -56,8 +72,9 @@
       var uploader = this;
       uploader.on('success', function(file, response) {
         console.log(response);
-        document.getElementById('result').innerHTML = file.xhr.response;
-        document.getElementById('print').className = 'print-show';
+        document.getElementById('result').innerHTML = response.table;
+        document.getElementById('buttons').className = '';
+        bindXMLDownload('to_pohoda_xml', response.invoice_number, response.pohoda_xml);
         setTimeout(function() {
           uploader.removeAllFiles();
         }, 1000)
@@ -66,7 +83,7 @@
 
     accept: function(file, done) {
       if (file.name.match(/.csv$/)) done();
-      else done("File must be a CSV export from Kros!");
+      else done("File must be a CSV export from KROS Alpha Plus!");
     },
   };
 </script>
