@@ -90,10 +90,7 @@ class PohodaExporter(BaseExporter):
                 self._make_company(self._invoice.supplier),
             ),
             self._make_payment_method(),
-            self.INV.account(
-                self.TYP.ids(self._invoice.payment.bank),
-                self.TYP.accountNo(self._invoice.payment.account),
-            ),
+            self._make_bank_account(),
             self.INV.symConst('0308'),
             self.INV.liquidation(
                 self.TYP.amountHome(str(sum((item.total for item in self._invoice.items), Decimal(0)))),
@@ -131,6 +128,16 @@ class PohodaExporter(BaseExporter):
         return self.INV.paymentType(
             self.TYP.ids(ids),
             self.TYP.paymentType(typ),
+        )
+
+    def _make_bank_account(self):
+        bank, account = self._invoice.payment.bank, self._invoice.payment.account
+        if account.endswith(' / 8330'):
+            bank = 'FIO'
+            account = account[:-len(' / 8330')]
+        return self.INV.account(
+            self.TYP.ids(bank),
+            self.TYP.accountNo(account),
         )
 
     def _make_invoice_item(self, item: InvoiceItem):

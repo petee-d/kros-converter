@@ -54,8 +54,8 @@
           <typ:paymentType>draft</typ:paymentType>
         </inv:paymentType>
         <inv:account>
-          <typ:ids>Banka, a.s.</typ:ids>
-          <typ:accountNo>0123456789 / 1234</typ:accountNo>
+          <typ:ids>FIO</typ:ids>
+          <typ:accountNo>0123456789</typ:accountNo>
         </inv:account>
         <inv:symConst>0308</inv:symConst>
         <inv:liquidation>
