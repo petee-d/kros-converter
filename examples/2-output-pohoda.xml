@@ -18,6 +18,9 @@
         <inv:classificationVAT>
           <typ:ids>UDpdp</typ:ids>
         </inv:classificationVAT>
+        <inv:classificationKVDPH>
+          <typ:ids>A2CN</typ:ids>
+        </inv:classificationKVDPH>
         <inv:text>Faktúrujeme Vám:</inv:text>
         <inv:partnerIdentity>
           <typ:address>

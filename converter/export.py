@@ -74,9 +74,9 @@ class PohodaExporter(BaseExporter):
             self.INV.classificationVAT(
                 self.TYP.ids('UDpdp'),
             ),
-            # self.INV.classificationKVDPH(
-            #     self.TYP.ids('???? A2CN'),
-            # ),
+            self.INV.classificationKVDPH(
+                self.TYP.ids('A2CN'),
+            ),
             self.INV.text('Faktúrujeme Vám:'),
             self.INV.partnerIdentity(
                 self._make_company(self._invoice.client),
