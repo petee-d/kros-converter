@@ -156,10 +156,12 @@ class PohodaExporter(BaseExporter):
                 self.INV.PDP('false'),
             )
 
+        unit = 'm' if item.unit == 'bm' else item.unit
+
         return self.INV.invoiceItem(
             self.INV.text(item.name),
             self.INV.quantity(str(item.quantity)),
-            self.INV.unit(item.unit),
+            self.INV.unit(unit),
             self.INV.coefficient('1.0'),
             self.INV.payVAT('false'),
             self.INV.rateVAT(vat_type),

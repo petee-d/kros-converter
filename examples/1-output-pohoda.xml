@@ -118,7 +118,7 @@
         <inv:invoiceItem>
           <inv:text>6-hran PVC oko 13</inv:text>
           <inv:quantity>75</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -145,7 +145,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 100/6</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -226,7 +226,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť zvar. Zn 10,6mm/0,8/25/100</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -253,7 +253,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť zvar. Zn 16mm/1,2/100</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -280,7 +280,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť zvar. Zn 19mm/1,45/100</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -471,7 +471,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť Zn 4/1,0/100</inv:text>
           <inv:quantity>10</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>
@@ -498,7 +498,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť Zn 3,10/0,8/100</inv:text>
           <inv:quantity>10</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>none</inv:rateVAT>

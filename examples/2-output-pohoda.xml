@@ -528,7 +528,7 @@
         <inv:invoiceItem>
           <inv:text>6-hran PVC oko 13</inv:text>
           <inv:quantity>168</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -557,7 +557,7 @@
         <inv:invoiceItem>
           <inv:text>6-hran PVC oko 25</inv:text>
           <inv:quantity>2</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -586,7 +586,7 @@
         <inv:invoiceItem>
           <inv:text>Forte Medium 120</inv:text>
           <inv:quantity>5</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -615,7 +615,7 @@
         <inv:invoiceItem>
           <inv:text>Forte Medium 150</inv:text>
           <inv:quantity>160</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -644,7 +644,7 @@
         <inv:invoiceItem>
           <inv:text>Luxor 150</inv:text>
           <inv:quantity>135</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -673,7 +673,7 @@
         <inv:invoiceItem>
           <inv:text>Plastirol 150</inv:text>
           <inv:quantity>19</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -702,7 +702,7 @@
         <inv:invoiceItem>
           <inv:text>Plastirol 180</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -731,7 +731,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 100</inv:text>
           <inv:quantity>29</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -760,7 +760,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 125</inv:text>
           <inv:quantity>135</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -789,7 +789,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 150</inv:text>
           <inv:quantity>394</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -818,7 +818,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 160</inv:text>
           <inv:quantity>184</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -847,7 +847,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 180</inv:text>
           <inv:quantity>603</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -876,7 +876,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran PVC 200</inv:text>
           <inv:quantity>39</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -905,7 +905,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 150/6</inv:text>
           <inv:quantity>419</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -934,7 +934,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 160</inv:text>
           <inv:quantity>10</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -963,7 +963,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 160/6</inv:text>
           <inv:quantity>75</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -992,7 +992,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 180/6</inv:text>
           <inv:quantity>425</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1021,7 +1021,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 200</inv:text>
           <inv:quantity>50</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1050,7 +1050,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo 4-hran ZN 200/6</inv:text>
           <inv:quantity>91</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1079,7 +1079,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo Zn 1,6x1,6/1,4/100</inv:text>
           <inv:quantity>10</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1108,7 +1108,7 @@
         <inv:invoiceItem>
           <inv:text>Pletivo Zn 1x1/1,4/100/10m</inv:text>
           <inv:quantity>10</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1137,7 +1137,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť  Fe 3,15/0,8/100</inv:text>
           <inv:quantity>25</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1166,7 +1166,7 @@
         <inv:invoiceItem>
           <inv:text>Sieť zvar. Zn 12,7mm/1,0/25/100</inv:text>
           <inv:quantity>32</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1195,7 +1195,7 @@
         <inv:invoiceItem>
           <inv:text>Uzlové pletivo 180/15/18dr/2,00x2,8</inv:text>
           <inv:quantity>50</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
@@ -1224,7 +1224,7 @@
         <inv:invoiceItem>
           <inv:text>Uzlové pletivo 200/15/17dr/2,0x2,8</inv:text>
           <inv:quantity>50</inv:quantity>
-          <inv:unit>bm</inv:unit>
+          <inv:unit>m</inv:unit>
           <inv:coefficient>1.0</inv:coefficient>
           <inv:payVAT>false</inv:payVAT>
           <inv:rateVAT>high</inv:rateVAT>
