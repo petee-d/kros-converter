@@ -1,10 +1,8 @@
-import codecs
 import csv
 import io
 import re
-from collections import OrderedDict
 from decimal import Decimal
-from typing import Iterable, List, Iterator
+from typing import Iterable, List, Iterator, Tuple
 
 from converter.model import InvoiceItem, Invoice
 
@@ -70,19 +68,22 @@ class KrosParser:
     page_start = 'Strana:'
     supplier_start = 'DODÁVATEĽ:'
     supplier_column = 0
+    invoice_number_header_column = 15
     invoice_number_column = 24
 
-    def _get_invoice_number(self) -> str:
+    def _get_invoice_number(self) -> Tuple[str, int]:
         """Get invoice number, skipping rows before supplier."""
         row = self._read_row_skipping(self.supplier_start, expect=True, skip=('', self.page_start),
                                       column=self.supplier_column)
-        return row[self.invoice_number_column]
+        offset = 0 if row[self.invoice_number_header_column].strip() else -1
+        invoice_number = row[self.invoice_number_column]
+        return invoice_number, offset
 
     order_column = 22
     supplier_company_id_start = 'IČO'
     supplier_company_id_column = 4
 
-    def _read_supplier_and_meta(self, invoice: Invoice):
+    def _read_supplier_and_meta(self, invoice: Invoice, offset: int):
         row = self._read_row_skipping('názov dodávateľa', skip=('', self.page_start))
         invoice.supplier.name = row[self.supplier_column]
 
@@ -108,13 +109,13 @@ class KrosParser:
         invoice.payment.type = row[self.order_column].strip() or None
 
         row = self._read_row_skipping(self.supplier_company_id_start, expect=True)
-        invoice.supplier.company_id = row[self.supplier_company_id_column]
+        invoice.supplier.company_id = row[self.supplier_company_id_column + offset]
 
         row = next(self.reader)
-        invoice.supplier.tax_id = row[self.supplier_company_id_column] or None
+        invoice.supplier.tax_id = row[self.supplier_company_id_column + offset] or None
 
         row = next(self.reader)
-        invoice.supplier.vat_id = row[self.supplier_company_id_column] or None
+        invoice.supplier.vat_id = row[self.supplier_company_id_column + offset] or None
 
         row = self._read_row_skipping('poznámka o zápise', column=self.supplier_column)
         invoice.supplier.register = row[self.supplier_column]
@@ -138,53 +139,54 @@ class KrosParser:
     shop_address_section_column = 14
     shop_address_column = 19
 
-    def _read_meta_and_client(self, invoice: Invoice):
+    def _read_meta_and_client(self, invoice: Invoice, offset: int):
         row = self._read_row_skipping(self.issue_date_section_start, expect=True, column=self.issue_date_section_column)
-        invoice.dates.issue = row[self.issue_date_column]
+        invoice.dates.issue = row[self.issue_date_column + offset]
         if not invoice.dates.issue:
             raise FormatError('Nebol nájdený dátum vyhotovenia na očakávanom mieste')
 
         row = self._read_row_skipping('dátum dodania', column=self.issue_date_section_column)
-        invoice.dates.supply = row[self.issue_date_column]
+        invoice.dates.supply = row[self.issue_date_column + offset]
 
-        row = self._read_row_skipping('názov klienta', column=self.client_name_column)
-        invoice.client.name = row[self.client_name_column]
+        row = self._read_row_skipping('názov klienta', column=self.client_name_column + offset)
+        invoice.client.name = row[self.client_name_column + offset]
 
         row = self._read_row_skipping('dátum splatnosti', column=self.issue_date_section_column)
-        invoice.dates.due = row[self.issue_date_column]
+        invoice.dates.due = row[self.issue_date_column + offset]
 
-        row = self._read_row_skipping('adresa klienta', column=self.client_name_column)
-        invoice.client.address.street_and_number = row[self.client_name_column]
+        row = self._read_row_skipping('adresa klienta', column=self.client_name_column + offset)
+        invoice.client.address.street_and_number = row[self.client_name_column + offset]
         if self.client_company_id_section_name not in row[self.client_company_id_section_column]:
             raise FormatError('Sekcia s IČO klienta nebola nájdená na očakávanom mieste')
         invoice.client.company_id = row[self.client_company_id_column]
 
-        row = self._read_row_skipping('adresa klienta', column=self.client_name_column)
-        invoice.client.address.zip, invoice.client.address.city  = self._parse_zip_city(row[self.client_name_column])
+        row = self._read_row_skipping('adresa klienta', column=self.client_name_column + offset)
+        zip_with_city = row[self.client_name_column + offset]
+        invoice.client.address.zip, invoice.client.address.city = self._parse_zip_city(zip_with_city)
         invoice.client.tax_id = row[self.client_company_id_column] or None
 
         row = self._read_row_skipping(self.account_number_section_start, expect=True,
                                       column=self.account_number_section_column)
-        invoice.payment.account = row[self.account_number_column]
-        if self.variable_symbol_section_start not in row[self.variable_symbol_section_column]:
+        invoice.payment.account = row[self.account_number_column + offset]
+        if self.variable_symbol_section_start not in row[self.variable_symbol_section_column + offset]:
             raise FormatError('Sekcia s variabilným symbolom nebola nájdená na očakávanom mieste')
-        invoice.payment.variable_symbol = row[self.variable_symbol_column]
+        invoice.payment.variable_symbol = row[self.variable_symbol_column + offset]
 
-        row = self._read_row_skipping('adresa klienta', column=self.client_name_column)
-        invoice.client.address.country = row[self.client_name_column]
+        row = self._read_row_skipping('adresa klienta', column=self.client_name_column + offset)
+        invoice.client.address.country = row[self.client_name_column + offset]
         invoice.client.vat_id = row[self.client_company_id_column] or None
 
         row = self._read_row_skipping('banka', column=self.account_number_section_column)
-        invoice.payment.bank = row[self.account_number_column]
+        invoice.payment.bank = row[self.account_number_column + offset]
 
-        row = self._read_row_skipping(self.shop_address_section_start, column=self.shop_address_section_column)
+        row = self._read_row_skipping(self.shop_address_section_start, column=self.shop_address_section_column + offset)
         invoice.client.shop_address = row[self.shop_address_column]
 
         row = self._read_row_skipping('IBAN', column=self.account_number_section_column)
-        invoice.payment.iban = row[self.account_number_column]
+        invoice.payment.iban = row[self.account_number_column + offset]
 
         row = self._read_row_skipping('SWIFT', column=self.account_number_section_column)
-        invoice.payment.swift = row[self.account_number_column]
+        invoice.payment.swift = row[self.account_number_column + offset]
 
     items_section_start = 'Faktúrujeme Vám:'
     items_section_column = 0
@@ -198,18 +200,18 @@ class KrosParser:
     items_total_no_vat_column = 28
     items_total_column = 31
 
-    def _locate_code_column(self) -> int:
+    def _locate_code_column(self, offset: int) -> int:
         for row in self.reader:
             self._expect_col_count(row)
             for col in self.items_code_column_candidates:
-                if self.items_code_string in row[col]:
-                    return col
+                if self.items_code_string in row[col + offset]:
+                    return col + offset
         else:
             raise FormatError('Nebol nájdený začiatok tabuľky položiek faktúry')
 
-    def _read_items(self) -> Iterable[InvoiceItem]:
+    def _read_items(self, offset: int) -> Iterable[InvoiceItem]:
         self._read_row_skipping(self.items_section_start, expect=True, column=self.items_section_column)
-        col_code = self._locate_code_column()
+        col_code = self._locate_code_column(offset)
 
         for row in self.reader:
             self._expect_col_count(row)
@@ -217,7 +219,7 @@ class KrosParser:
                 break
             yield InvoiceItem(
                 code=row[col_code],
-                name=row[self.items_name_column],
+                name=row[self.items_name_column + offset],
                 quantity=convert_decimal(row[self.items_quantity_column]),
                 unit=row[self.items_unit_column],
                 unit_price=convert_decimal(row[self.items_unit_price_column]),
@@ -226,17 +228,12 @@ class KrosParser:
                 total=convert_decimal(row[self.items_total_column]),
             )
 
-    carried_tax_start = 'Prenesenie'
-    carried_tax_column = 2
     delivery_to_start = 'Tovar prevzal :'
     delivery_to_column = 0
     issued_by_start = 'Vyhotovil:'
     issued_by_column = 0
 
     def _read_final_meta(self, invoice: Invoice):
-        row = self._read_row_skipping(self.carried_tax_start, expect=True, column=self.carried_tax_column)
-        invoice.carrying_tax = row[self.carried_tax_column]
-
         row = self._read_row_skipping(self.delivery_to_start, expect=True, column=self.delivery_to_column)
         invoice.delivery_to = row[self.delivery_to_column][len(self.delivery_to_start):].strip()
 
@@ -244,9 +241,10 @@ class KrosParser:
         invoice.issued_by = row[self.issued_by_column][len(self.issued_by_start):].strip()
 
     def parse(self) -> Invoice:
-        invoice = Invoice(number=self._get_invoice_number())
-        self._read_supplier_and_meta(invoice)
-        self._read_meta_and_client(invoice)
-        invoice.items = list(self._read_items())
+        invoice_number, offset = self._get_invoice_number()
+        invoice = Invoice(number=invoice_number)
+        self._read_supplier_and_meta(invoice, offset)
+        self._read_meta_and_client(invoice, offset)
+        invoice.items = list(self._read_items(offset))
         self._read_final_meta(invoice)
         return invoice

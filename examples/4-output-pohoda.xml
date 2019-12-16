@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dat:dataPack xmlns:dat="http://www.stormware.cz/schema/version_2/data.xsd" version="2.0" id="Usr01" ico="98765432" key="66d62ac0-293d-42ee-b61a-d9347c5f7567" programVersion="12108.3 (3.5.2019)" application="Transformace" note="Užívateľský export">
+  <dat:dataPackItem version="2.0" id="Usr01 (001)">
+    <inv:invoice xmlns:inv="http://www.stormware.cz/schema/version_2/invoice.xsd" xmlns:typ="http://www.stormware.cz/schema/version_2/type.xsd" version="2.0">
+      <inv:invoiceHeader>
+        <inv:invoiceType>issuedInvoice</inv:invoiceType>
+        <inv:number>
+          <typ:numberRequested>190777</typ:numberRequested>
+        </inv:number>
+        <inv:symVar>190111</inv:symVar>
+        <inv:date>2019-11-22</inv:date>
+        <inv:dateTax>2019-11-22</inv:dateTax>
+        <inv:dateAccounting>2019-11-22</inv:dateAccounting>
+        <inv:dateDue>2019-12-06</inv:dateDue>
+        <inv:accounting>
+          <typ:ids>311/604</typ:ids>
+        </inv:accounting>
+        <inv:classificationVAT>
+          <typ:ids>UDpdp</typ:ids>
+        </inv:classificationVAT>
+        <inv:classificationKVDPH>
+          <typ:ids>A2CN</typ:ids>
+        </inv:classificationKVDPH>
+        <inv:text>Faktúrujeme Vám:</inv:text>
+        <inv:partnerIdentity>
+          <typ:address>
+            <typ:company>Niekto Iný, s r.o.</typ:company>
+            <typ:city>Malé Mesto</typ:city>
+            <typ:street>Malé Mesto 99</typ:street>
+            <typ:zip>023 34</typ:zip>
+            <typ:ico>99887766</typ:ico>
+            <typ:dic>1122334455</typ:dic>
+            <typ:icDph>SK1122334455</typ:icDph>
+          </typ:address>
+          <typ:shipToAddress>
+            <typ:company/>
+            <typ:city/>
+            <typ:street/>
+          </typ:shipToAddress>
+        </inv:partnerIdentity>
+        <inv:myIdentity>
+          <typ:address>
+            <typ:company>Niekto s. r. o.</typ:company>
+            <typ:city>Trenčianska Studená</typ:city>
+            <typ:street>Dlhá 123/98</typ:street>
+            <typ:zip>914 01</typ:zip>
+            <typ:ico>98765432</typ:ico>
+            <typ:dic>4321098765</typ:dic>
+            <typ:icDph>SK4321098765</typ:icDph>
+          </typ:address>
+        </inv:myIdentity>
+        <inv:paymentType>
+          <typ:ids>V hotovosti</typ:ids>
+          <typ:paymentType>cash</typ:paymentType>
+        </inv:paymentType>
+        <inv:account>
+          <typ:ids>Fio banka, a.s.</typ:ids>
+          <typ:accountNo>1122223333 / 8888</typ:accountNo>
+        </inv:account>
+        <inv:symConst>0308</inv:symConst>
+        <inv:liquidation>
+          <typ:amountHome>272.71</typ:amountHome>
+        </inv:liquidation>
+        <inv:markRecord>true</inv:markRecord>
+      </inv:invoiceHeader>
+      <inv:invoiceDetail>
+        <inv:invoiceItem>
+          <inv:text>Bránka Solid 1k 175cm</inv:text>
+          <inv:quantity>1</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>none</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>80.02</typ:unitPrice>
+            <typ:price>80.02</typ:price>
+            <typ:priceVAT>0.00</typ:priceVAT>
+            <typ:priceSum>80.02</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code>7308 3000</inv:code>
+          <inv:classificationKVDPH>
+            <typ:ids>A2CN</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>true</inv:PDP>
+          <inv:CodePDP>7308</inv:CodePDP>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:text>Sieť PVC ESAPLAX 19/1,4/25/100</inv:text>
+          <inv:quantity>25</inv:quantity>
+          <inv:unit>m</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>none</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>3.02</typ:unitPrice>
+            <typ:price>75.50</typ:price>
+            <typ:priceVAT>0.00</typ:priceVAT>
+            <typ:priceSum>75.50</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code>7314 3900</inv:code>
+          <inv:classificationKVDPH>
+            <typ:ids>A2CN</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>true</inv:PDP>
+          <inv:CodePDP>7314</inv:CodePDP>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:text>Sieť zvar. Zn  6,3mm/0,55/25/100</inv:text>
+          <inv:quantity>25</inv:quantity>
+          <inv:unit>m</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>none</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>1.80</typ:unitPrice>
+            <typ:price>45.00</typ:price>
+            <typ:priceVAT>0.00</typ:priceVAT>
+            <typ:priceSum>45.00</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code>7314 3100</inv:code>
+          <inv:classificationKVDPH>
+            <typ:ids>A2CN</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>true</inv:PDP>
+          <inv:CodePDP>7314</inv:CodePDP>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:text>Sieť zvar. Zn 12,7mm/0,8/25/100</inv:text>
+          <inv:quantity>25</inv:quantity>
+          <inv:unit>m</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>none</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>1.06</typ:unitPrice>
+            <typ:price>26.50</typ:price>
+            <typ:priceVAT>0.00</typ:priceVAT>
+            <typ:priceSum>26.50</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code>7314 3100</inv:code>
+          <inv:classificationKVDPH>
+            <typ:ids>A2CN</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>true</inv:PDP>
+          <inv:CodePDP>7314</inv:CodePDP>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:text>Sieť zvar. Zn 50mm/2,0/100/25</inv:text>
+          <inv:quantity>25</inv:quantity>
+          <inv:unit>m</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>none</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>1.58</typ:unitPrice>
+            <typ:price>39.50</typ:price>
+            <typ:priceVAT>0.00</typ:priceVAT>
+            <typ:priceSum>39.50</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code>7314 3100</inv:code>
+          <inv:classificationKVDPH>
+            <typ:ids>A2CN</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>true</inv:PDP>
+          <inv:CodePDP>7314</inv:CodePDP>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:text>Objímka PVC 60</inv:text>
+          <inv:quantity>6</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:coefficient>1.0</inv:coefficient>
+          <inv:payVAT>false</inv:payVAT>
+          <inv:rateVAT>high</inv:rateVAT>
+          <inv:discountPercentage>0.0</inv:discountPercentage>
+          <inv:homeCurrency>
+            <typ:unitPrice>0.86</typ:unitPrice>
+            <typ:price>5.16</typ:price>
+            <typ:priceVAT>1.03</typ:priceVAT>
+            <typ:priceSum>6.19</typ:priceSum>
+          </inv:homeCurrency>
+          <inv:foreignCurrency>
+            <typ:unitPrice>0</typ:unitPrice>
+            <typ:price>0</typ:price>
+            <typ:priceVAT>0</typ:priceVAT>
+            <typ:priceSum>0</typ:priceSum>
+          </inv:foreignCurrency>
+          <inv:code></inv:code>
+          <inv:classificationVAT>
+            <typ:ids>UD</typ:ids>
+          </inv:classificationVAT>
+          <inv:classificationKVDPH>
+            <typ:ids>A1</typ:ids>
+          </inv:classificationKVDPH>
+          <inv:PDP>false</inv:PDP>
+        </inv:invoiceItem>
+      </inv:invoiceDetail>
+      <inv:invoiceSummary>
+        <inv:roundingDocument>none</inv:roundingDocument>
+        <inv:roundingVAT>noneEveryRate</inv:roundingVAT>
+        <inv:homeCurrency>
+          <typ:priceNone>266.52</typ:priceNone>
+          <typ:priceLow>0</typ:priceLow>
+          <typ:priceLowVAT>0</typ:priceLowVAT>
+          <typ:priceLowSum>0</typ:priceLowSum>
+          <typ:priceHigh>5.16</typ:priceHigh>
+          <typ:priceHighVAT>1.03</typ:priceHighVAT>
+          <typ:priceHighSum>6.19</typ:priceHighSum>
+          <typ:price3>0</typ:price3>
+          <typ:price3VAT>0</typ:price3VAT>
+          <typ:price3Sum>0</typ:price3Sum>
+          <typ:round>
+            <typ:priceRound>0</typ:priceRound>
+          </typ:round>
+        </inv:homeCurrency>
+      </inv:invoiceSummary>
+    </inv:invoice>
+  </dat:dataPackItem>
+</dat:dataPack>

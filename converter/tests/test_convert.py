@@ -49,6 +49,13 @@ class ViewTest(SimpleTestCase):
             'pohoda_xml': self._load_file('3-output-pohoda.xml', 'utf-8'),
         })
 
+    def test_convert_4_windows_1250(self):
+        self._test_convert(self._load_file('4-input-windows-1250.csv', 'windows-1250').encode('windows-1250'), {
+            'invoice_number': '190777',
+            'table': self._load_file('4-output-table.html', 'utf-8'),
+            'pohoda_xml': self._load_file('4-output-pohoda.xml', 'utf-8'),
+        })
+
     def test_convert_error_csv(self):
         upload = SimpleUploadedFile('file.csv', b'a;b;c\n1;2', content_type='text/csv')
         resp = self.client.post('/convert', {'file': upload})
