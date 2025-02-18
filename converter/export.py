@@ -143,9 +143,11 @@ class PohodaExporter(BaseExporter):
     def _make_invoice_item(self, item: InvoiceItem):
         if item.vat == 0:
             vat_type = 'none'
-        elif item.vat == 10:
+        elif item.vat == 5:
+            vat_type = 'third'
+        elif item.vat in (10, 19):
             vat_type = 'low'
-        elif item.vat == 20:
+        elif item.vat in (20, 23):
             vat_type = 'high'
         else:
             raise ValueError(f'Neznáma sadzba DPH {item.vat} v položke {item.name}')
